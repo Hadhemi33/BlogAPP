@@ -18,8 +18,15 @@ const Auth = () => {
   const classes = useStyles();
   //  const state = null;
   const [showPassword, setShowPassword] = useState(false);
-  const isSignup = false;
+  //const isSignup = false;
+  // return  isSignup into a stateField
+  const [isSignup, setIsSignup] = useState(false);
+
   const handleSubmit = () => {};
+  const switchMode = () => {
+    setIsSignup((prevIsSignup) => !prevIsSignup);
+    handleShowPassworrd(false);
+  };
   const handleChange = () => {};
   const handleShowPassworrd = () =>
     setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -67,14 +74,27 @@ const Auth = () => {
                 name="confirmPassword"
                 label="Repeat Password"
                 handleChange={handleChange}
-                type={showPassword ? "text" : "password"}
-                handleShowPassworrd={handleShowPassworrd}
+                type="password"
               />
             )}
-
-            {/* {
-                isSignup && <Input name "confirmPassword"
-            } */}
+          </Grid>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            {isSignup ? "Sign up" : "Sign in"}
+          </Button>
+          <Grid container justify="flex-end">
+            <Grid item>
+              <Button onClick={switchMode}>
+                {isSignup
+                  ? "Already have an account ? Sign In"
+                  : "You don't have an account ? Sign Up"}
+              </Button>
+            </Grid>
           </Grid>
         </form>
       </Paper>
