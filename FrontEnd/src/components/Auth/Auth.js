@@ -7,15 +7,20 @@ import {
   Grid,
   Typography,
   Container,
-  TextField,
 } from "@material-ui/core";
+import { GoogleLogin } from "react-google-login";
+import { LoginSocialGoogle } from "reactjs-social-login";
+import { GoogleLoginButton } from "react-social-login-buttons";
 import useStyles from "./styles";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import { useDispatch } from "react-redux";
 
 import Input from "./Input";
+import Icon from "./icon";
 
 const Auth = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
   //  const state = null;
   const [showPassword, setShowPassword] = useState(false);
   //const isSignup = false;
@@ -30,6 +35,7 @@ const Auth = () => {
   const handleChange = () => {};
   const handleShowPassworrd = () =>
     setShowPassword((prevShowPassword) => !prevShowPassword);
+
   return (
     <Container component="main" maxWidth="xs">
       <Paper className={classes.paper} elevation={3}>
@@ -78,6 +84,7 @@ const Auth = () => {
               />
             )}
           </Grid>
+
           <Button
             type="submit"
             fullWidth
@@ -87,7 +94,25 @@ const Auth = () => {
           >
             {isSignup ? "Sign up" : "Sign in"}
           </Button>
-          <Grid container justify="flex-end">
+
+          <LoginSocialGoogle
+            client_id={
+              "581059358726-22787fcgsej74t18sgt8u01pqdd3b81a.apps.googleusercontent.com"
+            }
+            scope="openid profile email"
+            discoveryDocs="claims_supported"
+            access_type="offline"
+            onResolve={({ provider, data }) => {
+              console.log(provider, data);
+            }}
+            onReject={(err) => {
+              console.log(err);
+            }}
+          >
+            <GoogleLoginButton />
+          </LoginSocialGoogle>
+
+          <Grid container justifyContent="flex-end">
             <Grid item>
               <Button onClick={switchMode}>
                 {isSignup

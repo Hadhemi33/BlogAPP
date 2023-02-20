@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  AppBar,
-  Typography,
-  Grow,
-  Grid,
-  Toolbar,
-  Button,
-} from "@material-ui/core";
+import { AppBar, Typography, Toolbar, Button } from "@material-ui/core";
 import memories from "../../images/memories.png";
 import useStyles from "./styles";
 import { Link } from "react-router-dom";
