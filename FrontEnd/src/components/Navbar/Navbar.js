@@ -1,13 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { AppBar, Typography, Toolbar, Button } from "@material-ui/core";
 import memories from "../../images/memories.png";
 import useStyles from "./styles";
-import { Link } from "react-router-dom";
+
+import { Link, useHistory } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
+import { useDispatch } from "react-redux";
 
 const NavBar = () => {
   const classes = useStyles();
-  const user = null;
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  //get user name and icon from the data base
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  console.log(user);
+  //move to home after signin/up
+  // useEffect(() => {
+  //   const token = user?.token;
+  //   setUser(JSON.parse(localStorage.getItem("profile")));
+  // }, []);
+  const logout = () => {
+    dispatch({ type: "LOGOUT" });
+    history.push("/");
+    setUser(null);
+  };
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
@@ -41,6 +58,7 @@ const NavBar = () => {
               variant="contained"
               className={classes.logout}
               color="secondary"
+              onClick={logout}
             >
               Logout
             </Button>
