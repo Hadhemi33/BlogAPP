@@ -3,7 +3,7 @@ import { AppBar, Typography, Toolbar, Button } from "@material-ui/core";
 import memories from "../../images/memories.png";
 import useStyles from "./styles";
 
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import { useDispatch } from "react-redux";
 
@@ -11,15 +11,16 @@ const NavBar = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
+  const location = useLocation();
 
   //get user name and icon from the data base
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   console.log(user);
   //move to home after signin/up
-  // useEffect(() => {
-  //   const token = user?.token;
-  //   setUser(JSON.parse(localStorage.getItem("profile")));
-  // }, []);
+  useEffect(() => {
+    const token = user?.token;
+    setUser(JSON.parse(localStorage.getItem("profile")));
+  }, [location]); //when location changed set the user
   const logout = () => {
     dispatch({ type: "LOGOUT" });
     history.push("/");

@@ -28,15 +28,29 @@ const Auth = () => {
   // return  isSignup into a stateField
   const [isSignup, setIsSignup] = useState(false);
   const history = useHistory();
-
-  const handleSubmit = () => {};
+  const initialState = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  };
+  const [formData, setFormData] = useState(initialState);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
   const switchMode = () => {
     setIsSignup((prevIsSignup) => !prevIsSignup);
     handleShowPassworrd(false);
   };
-  const handleChange = () => {};
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
   const handleShowPassworrd = () =>
     setShowPassword((prevShowPassword) => !prevShowPassword);
+
   const googleAccess = ({ provider, data }) => {
     // console.log(provider, data);
 
@@ -74,8 +88,8 @@ const Auth = () => {
                   half
                 />
                 <Input
-                  name="firstName"
-                  label="First Name"
+                  name="lastName"
+                  label="Last Name"
                   handleChange={handleChange}
                   half
                 />
