@@ -17,7 +17,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import Input from "./Input";
-import Icon from "./icon";
+
 import { signin, signup } from "../../actions/auth";
 
 const Auth = () => {
@@ -49,7 +49,7 @@ const Auth = () => {
   };
   const switchMode = () => {
     setIsSignup((prevIsSignup) => !prevIsSignup);
-    handleShowPassworrd(false);
+    setShowPassword(false);
   };
 
   const handleChange = (e) => {
@@ -57,6 +57,9 @@ const Auth = () => {
   };
   const handleShowPassworrd = () =>
     setShowPassword((prevShowPassword) => !prevShowPassword);
+
+  // tester
+  console.log("showPassword", showPassword);
 
   const googleAccess = ({ provider, data }) => {
     // console.log(provider, data);

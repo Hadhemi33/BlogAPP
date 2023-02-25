@@ -18,7 +18,7 @@ const NavBar = () => {
   console.log(user);
   //move to home after signin/up
   useEffect(() => {
-    const token = user?.token;
+    //const token = user?.token;
     setUser(JSON.parse(localStorage.getItem("profile")));
   }, [location]); //when location changed set the user
   const logout = () => {
