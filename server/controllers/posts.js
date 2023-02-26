@@ -55,10 +55,12 @@ export const likePost = async (req, res) => {
     //dislike
     post.likes = post.likes.filter((id) => id !== String(req.userId));
   }
-
+  console.log(post);
   const updatePost = await PostMessage.findByIdAndUpdate(
     id,
-    { likeCount: post.likeCount + 1 },
+    // { likeCount: post.likeCount + 1 },
+
+    post,
     { new: true }
   );
   res.json(updatePost);
