@@ -6,6 +6,7 @@ import useStyles from "./styles";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import { useDispatch } from "react-redux";
+import decode from "jwt-decode";
 
 const NavBar = () => {
   const classes = useStyles();
@@ -15,10 +16,16 @@ const NavBar = () => {
 
   //get user name and icon from the data base
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
-  console.log(user);
+  //console.log(user);
   //move to home after signin/up
   useEffect(() => {
-    //const token = user?.token;
+    const token = user?.token;
+    //JWT
+    if (token) {
+      const decodedToken = decode(token);
+      if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+    }
+
     setUser(JSON.parse(localStorage.getItem("profile")));
   }, [location]); //when location changed set the user
   const logout = () => {
