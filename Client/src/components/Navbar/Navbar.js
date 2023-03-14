@@ -27,7 +27,8 @@ const NavBar = () => {
     }
 
     setUser(JSON.parse(localStorage.getItem("profile")));
-  }, [location]); //when location changed set the user
+  }, [location]);
+  //when location changed set the user
   const logout = () => {
     dispatch({ type: "LOGOUT" });
     history.push("/");
