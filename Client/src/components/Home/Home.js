@@ -51,7 +51,7 @@ const Home = () => {
       dispatch(getPostsBySearch({ search, tags: tags.join(",") }));
       //change the url
       history.push(
-        `/posts/search?searchQuery=${search || "none"}&tags=${tags.join(",")}`
+        `/posts/search?searchQuery=${search || ""}&tags=${tags.join(",")}`
       );
     } else {
       history.push("/");
