@@ -9,6 +9,22 @@ export const getPosts = async (req, res) => {
     res.status(404).json({ message: error.message });
   }
 };
+// QUERY => /posts?pages=1
+// PARAMS => /posts/:id
+
+export const getPostsByaSearch = async (req, res) => {
+  const { searchQuery, tags } = req.query;
+  try {
+    const title = new RegExp(searchQuery, "i"); // i cest que maj or min are the same
+    const posts = await PostMessage.find({
+      $or: [{ title }, { tags: { $in: tags.split(",") } }],
+    });
+    res.json({ data: posts });
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
 export const createPost = async (req, res) => {
   const post = req.body;
   const newPostMessage = new PostMessage({
