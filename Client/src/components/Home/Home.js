@@ -14,7 +14,7 @@ import { useDispatch } from "react-redux";
 import { getPosts, getPostsBySearch } from "../../actions/posts";
 import useStyles from "./styles";
 
-import Paginate from "../pagination";
+import Pagination from "../pagination";
 import { useHistory, useLocation } from "react-router-dom";
 // input for tags
 import ChipInput from "material-ui-chip-input";
@@ -35,23 +35,36 @@ const Home = () => {
   const searchQuery = query.get("searchQuery");
   const [search, setSearch] = useState("");
   const [tags, setTags] = useState([]);
-
   useEffect(() => {
     dispatch(getPosts());
   }, [currentId, dispatch]);
+
   const handleKeyPress = (e) => {
     if (e.keyCode === 13) {
       searchPost();
     }
   };
+  // const searchPost = () => {
+  //   //trim: to make sur there is not empty spaces
+  //   if (search.trim() || tags) {
+  //     // dispatch fetch search posts
+  //     dispatch(getPostsBySearch({ search, tags: tags.join(",") }));
+  //     //change the url
+  //     history.push(
+  //       `/posts/search?searchQuery=${search || "none"}&tags=${tags.join(",")}`
+  //     );
+  //   } else {
+  //     history.push("/");
+  //   }
+  // };
   const searchPost = () => {
-    //trim: to make sur there is not empty spaces
+    console.log("====================================");
+    console.log(search);
+    console.log("====================================");
     if (search.trim() || tags) {
-      // dispatch fetch search posts
       dispatch(getPostsBySearch({ search, tags: tags.join(",") }));
-      //change the url
       history.push(
-        `/posts/search?searchQuery=${search || ""}&tags=${tags.join(",")}`
+        `/posts/search?searchQuery=${search || "none"}&tags=${tags.join(",")}`
       );
     } else {
       history.push("/");
@@ -117,7 +130,7 @@ const Home = () => {
               //className={classes.pagination}
               elevation={6}
             >
-              <Paginate />
+              <Pagination page={page} />
             </Paper>
           </Grid>
         </Grid>
