@@ -4,9 +4,6 @@ import useStyles from './styles';
 import { Link } from "react-router-dom";
 
 
-
-
-
 const Paginate = () => {
     const classes = useStyles();
 
