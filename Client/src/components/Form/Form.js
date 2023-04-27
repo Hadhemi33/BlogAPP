@@ -4,10 +4,11 @@ import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
 import { createPost, updatePost } from "../../actions/posts";
+import { useHistory } from "react-router-dom";
 
 const Form = ({ currentId, setCurrentId }) => {
   const post = useSelector((state) =>
-    currentId ? state.posts.find((p) => p._id === currentId) : null
+    currentId ? state.posts.posts.find((p) => p._id === currentId) : null
   );
 
   const [postData, setPostData] = useState({
@@ -23,19 +24,8 @@ const Form = ({ currentId, setCurrentId }) => {
 
   const classes = useStyles();
   const dispatch = useDispatch();
+  const history = useHistory();
   const user = JSON.parse(localStorage.getItem("profile"));
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (currentId) {
-      dispatch(
-        updatePost(currentId, { ...postData, name: user?.result?.name })
-      );
-    } else {
-      dispatch(createPost({ ...postData, name: user?.result?.name }));
-    }
-    clear();
-  };
-
   const clear = () => {
     setCurrentId(null);
     setPostData({
@@ -45,6 +35,20 @@ const Form = ({ currentId, setCurrentId }) => {
       tags: "",
       selectedFile: "",
     });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (currentId === 0) {
+      dispatch(createPost({ ...postData, name: user?.result?.name },history));
+      
+      clear();
+    } else {
+      dispatch(
+        updatePost(currentId, { ...postData, name: user?.result?.name })
+      );
+
+      clear();
+    }
   };
 
   if (!user?.result?.name) {
