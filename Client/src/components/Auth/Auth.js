@@ -8,11 +8,12 @@ import {
   Typography,
   Container,
 } from "@material-ui/core";
+import Fichier1 from "../../images/Fichier1.png";
 
 import { LoginSocialGoogle } from "reactjs-social-login";
 import { GoogleLoginButton } from "react-social-login-buttons";
 import useStyles from "./styles";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import LockIcon from "@material-ui/icons/Lock";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
@@ -80,13 +81,21 @@ const Auth = () => {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <Paper className={classes.paper} elevation={3}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography variant="h5">{isSignup ? "Sign up" : "Sign in"}</Typography>
+    <Container component="main" maxWidth="lg">
+      <Paper
+        className={classes.paper}
+        elevation={5}
+        //elevation color
+        style={{ backgroundColor: "#cfd88a8" }}
+      >
         <form className={classes.form} onSubmit={handleSubmit}>
+          <Avatar className={classes.avatar}>
+            <LockIcon />
+          </Avatar>
+          <Typography variant="h5">
+            {isSignup ? "Sign up" : "Sign in"}
+          </Typography>
+
           <Grid container spacing={2}>
             {isSignup && (
               <>
@@ -105,6 +114,7 @@ const Auth = () => {
                 />
               </>
             )}
+
             <Input
               name="email"
               label="Email Address"
@@ -115,7 +125,8 @@ const Auth = () => {
               name="password"
               label="Password"
               handleChange={handleChange}
-              type="password"
+              type={showPassword ? "text" : "password"}
+              // type="password"
               handleShowPassworrd={handleShowPassworrd}
             />
             {isSignup && (
@@ -132,7 +143,6 @@ const Auth = () => {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
             className={classes.submit}
           >
             {isSignup ? "Sign up" : "Sign in"}
@@ -148,7 +158,9 @@ const Auth = () => {
             onResolve={googleAccess}
             onReject={googleFailure}
           >
-            <GoogleLoginButton />
+            <Button className={classes.googleButton}>
+              connect with google
+            </Button>
           </LoginSocialGoogle>
 
           <Grid container justifyContent="flex-end">
@@ -161,6 +173,7 @@ const Auth = () => {
             </Grid>
           </Grid>
         </form>
+        <img className={classes.media} src={Fichier1} />
       </Paper>
     </Container>
   );
