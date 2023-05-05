@@ -46,11 +46,24 @@ const NavBar = () => {
           variant="h2"
           align="center"
         >
-          MemoTunisia
+          <img
+            className={classes.image}
+            src={memories}
+            // alt="icon"
+            height="60"
+          />
         </Typography>
-        <img className={classes.image} src={memories} alt="icon" height="60" />
       </div>
       <Toolbar className={classes.toolbar}>
+        <Button component={Link} to="/auth">
+          Home
+        </Button>
+        <Button component={Link} to="/">
+          Posts
+        </Button>
+        <Button component={Link} to="/auth">
+          Contact
+        </Button>
         {user ? (
           <div className={classes.profile}>
             <Avatar
@@ -74,12 +87,7 @@ const NavBar = () => {
             </Button>
           </div>
         ) : (
-          <Button
-            component={Link}
-            to="/auth"
-            variant="contained"
-            color="primary"
-          >
+          <Button component={Link} to="/auth">
             Sign In
           </Button>
         )}
