@@ -64,6 +64,9 @@ const Home = () => {
   return (
     <Grow in>
       <Container maxWidth="xl">
+        <Form currentId={currentId} setCurrentId={setCurrentId} />
+        <br></br>
+
         <Grid
           className={classes.gridContainer}
           container
@@ -112,7 +115,6 @@ const Home = () => {
                 Search
               </Button>
             </AppBar>
-            <Form currentId={currentId} setCurrentId={setCurrentId} />
             {!searchQuery && !tags.length && (
               <Paper className={classes.pagination} elevation={6}>
                 <Pagination page={page} />
