@@ -50,6 +50,7 @@
     ]
   },
   "devDependencies": {
+    "@locator/babel-jsx": "^0.2.4",
     "@redux-devtools/core": "^3.9.0",
     "@redux-devtools/dock-monitor": "^1.4.0",
     "@redux-devtools/log-monitor": "^2.3.0",
