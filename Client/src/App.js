@@ -8,17 +8,14 @@ import Home from "./components/Home/Home";
 import Auth from "./components/Auth/Auth";
 
 import PostDetails from "./components/PostDetails/PostDetails";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   const user = JSON.parse(localStorage.getItem("profile"));
   return (
     <BrowserRouter>
-      <Container maxwidth="xl">
         <Navbar />
-        {/* <br></br>
-        <br></br>
-        <br></br>
-        <br></br> */}
+      <Container maxwidth="xl">
         <div className="AppContainer">
           <Switch>
             {/* <Route path="/" exact component={Home} /> */}
@@ -37,6 +34,7 @@ const App = () => {
 
         {/* grow provide simple animation  */}
       </Container>
+        <Footer />
     </BrowserRouter>
   );
 };
