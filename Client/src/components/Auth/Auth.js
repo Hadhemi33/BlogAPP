@@ -9,6 +9,7 @@ import {
   Container,
 } from "@material-ui/core";
 import Fichier1 from "../../images/Fichier1.png";
+import fichier2 from "../../images/fichier2.jpg";
 
 import { LoginSocialGoogle } from "reactjs-social-login";
 import { GoogleLoginButton } from "react-social-login-buttons";
@@ -100,7 +101,7 @@ const Auth = () => {
             {isSignup && (
               <>
                 <Input
-                className="inputStyle"
+                  className="inputStyle"
                   //color
                   variant="outlined"
                   name="firstName"
@@ -176,7 +177,7 @@ const Auth = () => {
             </Grid>
           </Grid>
         </form>
-        <img className={classes.media} src={Fichier1} />
+        <img className={classes.media} src={fichier2} />
       </Paper>
     </Container>
   );
