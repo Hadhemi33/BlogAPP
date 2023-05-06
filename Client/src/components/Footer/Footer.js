@@ -1,27 +1,24 @@
-import React from 'react'
+import React from "react";
 import "./style.css";
 
 export default function Footer() {
-    return (
-        <footer>
+  return (
+    <footer>
       <div className="footer-content">
         <h3>Food Junction</h3>
         <p>
-          Made with <span class="heart">&#10084;</span> by Rohit and Payal
+          Made with <span className="heart">&#10084;</span> by Rohit and Payal
         </p>
         <ul className="socials">
           <li>
-            <a href="#">
-            </a>
+            <a href="#"></a>
           </li>
 
           <li>
-            <a href="#">
-            </a>
+            <a href="#"></a>
           </li>
           <li>
-            <a href="#">
-            </a>
+            <a href="#"></a>
           </li>
         </ul>
       </div>
@@ -44,5 +41,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-    )
+  );
 }
