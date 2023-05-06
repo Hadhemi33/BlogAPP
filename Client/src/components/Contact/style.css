@@ -23,6 +23,7 @@ text-align: center;
     display: flex;
     flex-direction: column
     ;
+    width: 100%;
 }
 p{
     font-size: 1.1rem;
@@ -36,4 +37,11 @@ h3{
     font-size: 2rem;
     margin-bottom: 1rem;
 }
- 
+input , textarea{
+    width: 60%;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
