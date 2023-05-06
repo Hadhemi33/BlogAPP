@@ -20,7 +20,7 @@ const App = () => {
   const user = JSON.parse(localStorage.getItem("profile"));
   return (
     <BrowserRouter>
-        <Navbar />
+      <Navbar />
       <Container maxwidth="xl">
         <div className="AppContainer">
           <Switch>
@@ -41,7 +41,7 @@ const App = () => {
 
         {/* grow provide simple animation  */}
       </Container>
-        <Footer />
+      <Footer />
     </BrowserRouter>
   );
 };
