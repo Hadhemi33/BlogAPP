@@ -14,6 +14,7 @@ import Auth from "./components/Auth/Auth";
 
 import PostDetails from "./components/PostDetails/PostDetails";
 import Footer from "./components/Footer/Footer";
+import Contact from "./components/Contact/Contact";
 
 const App = () => {
   const user = JSON.parse(localStorage.getItem("profile"));
@@ -28,6 +29,7 @@ const App = () => {
             <Route path="/posts" exact component={Home} />
             <Route path="/posts/search" exact component={Home} />
             <Route path="/posts/:id" exact component={PostDetails} />
+            <Route path ="/contact" exact component={Contact} />
             {/* <Route path="/auth" exact component={Auth} /> */}
             <Route
               path="/auth"

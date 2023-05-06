@@ -15,6 +15,8 @@ export default makeStyles((theme) => ({
     display: "flex",
     flexDirection: "rows",
     padding: theme.spacing(2),
+    boxShadow: "0px 1px 10px #9dc190",
+
   },
   root: {
     "& .MuiTextField-root": {

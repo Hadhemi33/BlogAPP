@@ -5,43 +5,17 @@ export default function Footer() {
     return (
         <footer>
       <div className="footer-content">
-        <h3>Food Junction</h3>
+        <h3>Memo Tunisia</h3>
         <p>
-          Made with <span class="heart">&#10084;</span> by Rohit and Payal
+          Made with <span class="heart">&#10084;</span> by  H2 I2
         </p>
-        <ul className="socials">
-          <li>
-            <a href="#">
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-            </a>
-          </li>
-          <li>
-            <a href="#">
-            </a>
-          </li>
-        </ul>
+      
       </div>
       <div className="footer-bottom">
         <p>
-          copyright &copy; <a href="#">food Junction</a>{" "}
+        &copy; copyright 2023  <a href="#">Memo Tunisia</a>{" "}
         </p>
-        <div className="footer-menu">
-          <ul className="f-menu">
-            <li>
-              <a href="">Home</a>
-            </li>
-            <li>
-              <a href="">About</a>
-            </li>
-            <li>
-              <a href="">Contact</a>
-            </li>
-          </ul>
-        </div>
+     
       </div>
     </footer>
     )
