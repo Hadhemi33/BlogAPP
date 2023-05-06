@@ -37,7 +37,11 @@ const NavBar = () => {
   };
 
   return (
-    <AppBar className={classes.appBar} position="static" color="inherit">
+    <AppBar
+      className={classes.appBar}
+      // position="static"
+      color="inherit"
+    >
       <div className={classes.brandContainer}>
         <Typography
           component={Link}
@@ -46,22 +50,22 @@ const NavBar = () => {
           variant="h2"
           align="center"
         >
-          <img
+          {/* <img
             className={classes.image}
             src={memories}
             // alt="icon"
             height="60"
-          />
+          /> */}
         </Typography>
       </div>
       <Toolbar className={classes.toolbar}>
-        <Button component={Link} to="/auth">
+        <Button style={{ color: "white" }} component={Link} to="/auth">
           Home
         </Button>
-        <Button component={Link} to="/">
+        <Button style={{ color: "white" }} component={Link} to="/">
           Posts
         </Button>
-        <Button component={Link} to="/auth">
+        <Button style={{ color: "white" }} component={Link} to="/auth">
           Contact
         </Button>
         {user ? (
@@ -82,12 +86,13 @@ const NavBar = () => {
               className={classes.logout}
               color="secondary"
               onClick={logout}
+              style={{ color: "white" }}
             >
               Logout
             </Button>
           </div>
         ) : (
-          <Button component={Link} to="/auth">
+          <Button style={{ color: "white" }} component={Link} to="/auth">
             Sign In
           </Button>
         )}

@@ -92,7 +92,7 @@ const Auth = () => {
           <Avatar className={classes.avatar}>
             <LockIcon />
           </Avatar>
-          <Typography variant="h5">
+          <Typography style={{ color: "white" }} variant="h5">
             {isSignup ? "Sign up" : "Sign in"}
           </Typography>
 
@@ -100,6 +100,9 @@ const Auth = () => {
             {isSignup && (
               <>
                 <Input
+                className="inputStyle"
+                  //color
+                  variant="outlined"
                   name="firstName"
                   label="First Name"
                   handleChange={handleChange}
@@ -165,7 +168,7 @@ const Auth = () => {
 
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <Button onClick={switchMode}>
+              <Button style={{ color: "white" }} onClick={switchMode}>
                 {isSignup
                   ? "Already have an account ? Sign In"
                   : "You don't have an account ? Sign Up"}

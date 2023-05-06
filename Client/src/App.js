@@ -15,19 +15,25 @@ const App = () => {
     <BrowserRouter>
       <Container maxwidth="xl">
         <Navbar />
-        <Switch>
-          {/* <Route path="/" exact component={Home} /> */}
-          <Route path="/" exact component={() => <Redirect to="/posts" />} />
-          <Route path="/posts" exact component={Home} />
-          <Route path="/posts/search" exact component={Home} />
-          <Route path="/posts/:id" exact component={PostDetails} />
-          {/* <Route path="/auth" exact component={Auth} /> */}
-          <Route
-            path="/auth"
-            exact
-            component={() => (!user ? <Auth /> : <Redirect to="/posts" />)}
-          />
-        </Switch>
+        {/* <br></br>
+        <br></br>
+        <br></br>
+        <br></br> */}
+        <div className="AppContainer">
+          <Switch>
+            {/* <Route path="/" exact component={Home} /> */}
+            <Route path="/" exact component={() => <Redirect to="/posts" />} />
+            <Route path="/posts" exact component={Home} />
+            <Route path="/posts/search" exact component={Home} />
+            <Route path="/posts/:id" exact component={PostDetails} />
+            {/* <Route path="/auth" exact component={Auth} /> */}
+            <Route
+              path="/auth"
+              exact
+              component={() => (!user ? <Auth /> : <Redirect to="/posts" />)}
+            />
+          </Switch>
+        </div>
 
         {/* grow provide simple animation  */}
       </Container>
