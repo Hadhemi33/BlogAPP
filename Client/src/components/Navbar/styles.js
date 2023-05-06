@@ -4,7 +4,7 @@ import { deepPurple } from "@material-ui/core/colors";
 export default makeStyles((theme) => ({
   appBar: {
     //shadow
-    boxShadow: "0px 1px 100px #9dc190",
+    boxShadow: "0px 1px 70px #9dc190",
     background: "black",
     //borderRadius: 15,
     marginBottom: "30px",
