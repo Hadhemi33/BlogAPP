@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="footer-content">
         <h3>Memo Tunisia</h3>
         <p>
-          Made with <span className="heart">&#10084;</span> by Rohit and Payal
+          Made with <span class="heart">&#10084;</span> by H2 I2
         </p>
       </div>
       <div className="footer-bottom">
