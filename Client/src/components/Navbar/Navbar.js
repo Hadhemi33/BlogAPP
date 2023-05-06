@@ -50,12 +50,12 @@ const NavBar = () => {
           variant="h2"
           align="center"
         >
-          <img
+          {/* <img
             className={classes.image}
             src={memories}
             // alt="icon"
             height="60"
-          />
+          /> */}
         </Typography>
       </div>
       <Toolbar className={classes.toolbar}>
