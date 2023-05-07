@@ -15,13 +15,19 @@ import Auth from "./components/Auth/Auth";
 import PostDetails from "./components/PostDetails/PostDetails";
 import Footer from "./components/Footer/Footer";
 import Contact from "./components/Contact/Contact";
+import Creation from "./components/PostCreation/Creation";
 
 const App = () => {
   const user = JSON.parse(localStorage.getItem("profile"));
   return (
     <BrowserRouter>
       <Navbar />
-      <Container maxwidth="xl">
+      <Container
+        maxwidth="xl"
+        style={{
+          minHeight: "100vh",
+        }}
+      >
         <div className="AppContainer">
           <Switch>
             {/* <Route path="/" exact component={Home} /> */}
@@ -29,7 +35,8 @@ const App = () => {
             <Route path="/posts" exact component={Home} />
             <Route path="/posts/search" exact component={Home} />
             <Route path="/posts/:id" exact component={PostDetails} />
-            <Route path ="/contact" exact component={Contact} />
+            <Route path="/contact" exact component={Contact} />
+            <Route path="/creation" exact component={Creation} />
             {/* <Route path="/auth" exact component={Auth} /> */}
             <Route
               path="/auth"

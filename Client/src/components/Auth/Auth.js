@@ -10,6 +10,7 @@ import {
 } from "@material-ui/core";
 import Fichier1 from "../../images/Fichier1.png";
 import fichier2 from "../../images/fichier2.jpg";
+import khomsa from "../../images/khomsa.jpg";
 
 import { LoginSocialGoogle } from "reactjs-social-login";
 import { GoogleLoginButton } from "react-social-login-buttons";
@@ -105,7 +106,7 @@ const Auth = () => {
                   //color
                   variant="outlined"
                   name="firstName"
-                  label="First Name"
+                  label="firsccccccccccccctName Name"
                   handleChange={handleChange}
                   autoFocus
                   half
@@ -125,6 +126,7 @@ const Auth = () => {
               handleChange={handleChange}
               type="email"
             />
+
             <Input
               name="password"
               label="Password"
@@ -177,7 +179,7 @@ const Auth = () => {
             </Grid>
           </Grid>
         </form>
-        <img className={classes.media} src={fichier2} />
+        <img className={classes.media} src={khomsa} />
       </Paper>
     </Container>
   );

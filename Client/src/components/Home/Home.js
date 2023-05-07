@@ -13,6 +13,7 @@ import Form from "../Form/Form";
 import { useDispatch } from "react-redux";
 import { getPosts, getPostsBySearch } from "../../actions/posts";
 import useStyles from "./styles";
+import Creation from "../PostCreation/Creation";
 
 import Pagination from "../pagination";
 import { useHistory, useLocation } from "react-router-dom";
@@ -64,7 +65,7 @@ const Home = () => {
   return (
     <Grow in>
       <Container maxWidth="xl">
-        <Form currentId={currentId} setCurrentId={setCurrentId} />
+        <Creation currentId={currentId} setCurrentId={setCurrentId} />
         <br></br>
 
         <Grid
