@@ -47,9 +47,11 @@ const NavBar = () => {
           component={Link}
           to="/"
           className={classes.heading}
-          variant="h2"
+          variant="h4"
           align="center"
         >
+          𝓜𝓔𝓜𝓞
+          {/* 𝓣𝓤𝓝𝓘𝓢𝓘𝓐 */}
           {/* <img
             className={classes.image}
             src={memories}
@@ -59,13 +61,27 @@ const NavBar = () => {
         </Typography>
       </div>
       <Toolbar className={classes.toolbar}>
-        <Button style={{ color: "white" }} component={Link} to="/auth">
+        <Button
+          className="ButtomText"
+          style={{ fontWeight: "900 ", color: "white", fontSize: "1.1rem" }}
+          component={Link}
+          to="/home"
+        >
           Home
         </Button>
-        <Button style={{ color: "white" }} component={Link} to="/">
+        <Button
+          style={{ fontWeight: "900 ", color: "white", fontSize: "1.1rem" }}
+          component={Link}
+          to="/"
+        >
           Posts
         </Button>
-        <Button style={{ color: "white" }} component={Link} to="/auth">
+
+        <Button
+          style={{ fontWeight: "900 ", color: "white", fontSize: "1.1rem" }}
+          component={Link}
+          to="/contact"
+        >
           Contact
         </Button>
         {user ? (
@@ -86,13 +102,17 @@ const NavBar = () => {
               className={classes.logout}
               color="secondary"
               onClick={logout}
-              style={{ color: "white" }}
+              style={{ fontWeight: "900 ", color: "white", fontSize: "1.1rem" }}
             >
               Logout
             </Button>
           </div>
         ) : (
-          <Button style={{ color: "white" }} component={Link} to="/auth">
+          <Button
+            style={{ fontWeight: "900 ", color: "white", fontSize: "1.1rem" }}
+            component={Link}
+            to="/auth"
+          >
             Sign In
           </Button>
         )}

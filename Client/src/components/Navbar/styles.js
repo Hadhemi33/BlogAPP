@@ -16,12 +16,10 @@ export default makeStyles((theme) => ({
     width: "100vw",
     position: "fixed",
   },
-  // heading: {
-  //   background: "red",
-
-  //   color: "rgba(0,183,255, 1)",
-  //   textDecoration: "none",
-  // },
+  heading: {
+    color: "white",
+    textDecoration: "none",
+  },
   image: {
     marginLeft: "15px",
   },
@@ -30,7 +28,7 @@ export default makeStyles((theme) => ({
 
     display: "flex",
     justifyContent: "flex-end",
-    width: "400px",
+    width: "700px",
   },
   profile: {
     display: "flex",

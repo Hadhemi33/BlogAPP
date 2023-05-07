@@ -27,7 +27,7 @@ export default makeStyles((theme) => ({
     backgroundColor: "#609966",
   },
   form: {
-    // backgroundColor: "red",
+    // backgroundColor: "#609966",
     width: "100%", // Fix IE 11 issue.
 
     display: "flex",
@@ -36,6 +36,10 @@ export default makeStyles((theme) => ({
     justifyContent: "center",
 
     // marginTop: theme.spacing(30),
+  },
+
+  label: {
+    color: "white",
   },
 
   submit: {

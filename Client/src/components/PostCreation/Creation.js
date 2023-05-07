@@ -4,9 +4,9 @@ import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
 import { createPost, updatePost } from "../../actions/posts";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
-const Form = ({ currentId, setCurrentId }) => {
+const Creation = ({ currentId, setCurrentId }) => {
   const post = useSelector((state) =>
     currentId ? state.posts.posts.find((p) => p._id === currentId) : null
   );
@@ -63,13 +63,6 @@ const Form = ({ currentId, setCurrentId }) => {
 
   return (
     <Paper className={classes.paper}>
-      <Button
-        style={{ fontWeight: "900 ", color: "black", fontSize: "1.1rem" }}
-        component={Link}
-        to="/creation"
-      >
-        Creation
-      </Button>
       <form
         autoComplete="off"
         noValidate
@@ -151,8 +144,7 @@ const Form = ({ currentId, setCurrentId }) => {
           Clear
         </Button>
       </form>
-      //{" "}
     </Paper>
   );
 };
-export default Form;
+export default Creation;
