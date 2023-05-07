@@ -16,7 +16,7 @@ const Input = ({
     <Grid item xs={12} sm={half ? 6 : 12}>
       <TextField
         style={{
-          backgroundColor: "#eee5b0",
+          backgroundColor: "#b6c1b8",
         }}
         name={name}
         onChange={handleChange}

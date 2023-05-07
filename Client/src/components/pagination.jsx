@@ -31,11 +31,13 @@ const Paginate = ({page}) => {
             //size of the pagination
             variant="outlined"
             //color of the pagination
-            color="primary"
+            color="#afffb8"
+            
             //shape of the pagination
             renderItem={(item) => (
 
                 <PaginationItem {...item} 
+                style={{backgroundColor:"white" , color:"#4b6d4f" }}
                 component={Link} to={`/posts?page=${item.page}`}
 
                 />

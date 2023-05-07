@@ -62,14 +62,13 @@ const Form = ({ currentId, setCurrentId }) => {
   }
 
   return (
-    <Paper className={classes.paper}>
-      <Button
-        style={{ fontWeight: "900 ", color: "black", fontSize: "1.1rem" }}
-        component={Link}
-        to="/creation"
-      >
-        Creation
-      </Button>
+    <Paper
+      style={{
+        minHeight: "500px",
+        minWidth: "1100PX",
+      }}
+      className={classes.paper}
+    >
       <form
         autoComplete="off"
         noValidate
@@ -77,20 +76,29 @@ const Form = ({ currentId, setCurrentId }) => {
         onSubmit={handleSubmit}
       >
         <Typography variant="h6">
-          {currentId ? "Editing" : "Creating"} a Memory
+          {currentId
+            ? "Editing "
+            : "Share your experience with others and create your "}
+          {"  "}
+          Memo
         </Typography>
         {/*ho create the post */}
         {/* <TextField
-          name="creator"
-          variant="outlined"
-          label="Creator"
-          fullWidth
-          value={postData.creator}
-          onChange={(e) =>
-            setPostData({ ...postData, creator: e.target.value })
-          }
-        /> */}
+        name="creator"
+        variant="outlined"
+        label="Creator"
+        fullWidth
+        value={postData.creator}
+        onChange={(e) =>
+          setPostData({ ...postData, creator: e.target.value })
+        }
+      /> */}
         <TextField
+          style={
+            {
+              //backgroundColor: "#eee5b0",
+            }
+          }
           name="title"
           variant="outlined"
           label="Title"
@@ -100,6 +108,11 @@ const Form = ({ currentId, setCurrentId }) => {
         />
 
         <TextField
+          style={
+            {
+              // backgroundColor: "#eee5b0",
+            }
+          }
           name="message"
           variant="outlined"
           label="Message"
@@ -110,6 +123,11 @@ const Form = ({ currentId, setCurrentId }) => {
           }
         />
         <TextField
+          style={
+            {
+              //backgroundColor: "#eee5b0",
+            }
+          }
           name="tags"
           variant="outlined"
           label="Tags (coma separated)"
@@ -124,6 +142,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
         <div className={classes.fileInput}>
           <FileBase
+            s
             type="file"
             multiple={false}
             onDone={({ base64 }) =>
@@ -143,7 +162,7 @@ const Form = ({ currentId, setCurrentId }) => {
         </Button>
         <Button
           variant="contained"
-          color="secondary"
+          className={classes.buttonClear}
           size="small"
           onClick={clear}
           fullWidth
@@ -151,8 +170,8 @@ const Form = ({ currentId, setCurrentId }) => {
           Clear
         </Button>
       </form>
-      //{" "}
     </Paper>
   );
 };
+
 export default Form;

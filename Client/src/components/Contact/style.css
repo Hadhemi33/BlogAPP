@@ -1,8 +1,24 @@
 .contact{
-    color: #ffffff;
-text-align: center;
-    }
+    color: #0b0c0b;
     
+    
+    
+    text-align: center;
+    margin-top: 50px;
+    padding: 3rem;
+
+    }
+.Container{
+  
+    align-items: center;
+    justify-content: space-between;
+    
+    
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0   0 100px 20px rgba(45, 73, 47, 0.2);
+    margin-top: 50px;
+}    
 .contact-content{
     display: flex;
     align-items: center;
@@ -32,16 +48,24 @@ p{
 }
 p span{
     font-weight: bold;
+    font-size: 1.5rem;
 }
 h3{
-    font-size: 2rem;
+    font-size: 3rem;
     margin-bottom: 1rem;
+    color: #07490b;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
+
 input , textarea{
-    width: 60%;
+    width: 80%;
+    height: 100%;
     margin-bottom: 1rem;
     padding: 1rem;
     border: none;
     outline: none;
     border-radius: 5px;
+}
+contact-form-text{
+    color: blanchedalmond;
 }

@@ -13,12 +13,12 @@ import Form from "../Form/Form";
 import { useDispatch } from "react-redux";
 import { getPosts, getPostsBySearch } from "../../actions/posts";
 import useStyles from "./styles";
-import Creation from "../PostCreation/Creation";
 
 import Pagination from "../pagination";
 import { useHistory, useLocation } from "react-router-dom";
 // input for tags
 import ChipInput from "material-ui-chip-input";
+
 // which page we are and what we are looking for
 function useQuery() {
   //we can use it like a hook
@@ -65,7 +65,7 @@ const Home = () => {
   return (
     <Grow in>
       <Container maxWidth="xl">
-        <Creation currentId={currentId} setCurrentId={setCurrentId} />
+        <Form currentId={currentId} setCurrentId={setCurrentId} />
         <br></br>
 
         <Grid
@@ -75,10 +75,7 @@ const Home = () => {
           alignItems="stretch"
           spacing={3}
         >
-          <Grid item xs={12} sm={6} md={9}>
-            <Posts setCurrentId={setCurrentId} />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={12} md={12}>
             <AppBar
               className={classes.appBarSearch}
               position="static"
@@ -110,19 +107,22 @@ const Home = () => {
               <Button
                 onClick={searchPost}
                 className={classes.searchButton}
-                color="primary"
+                
                 variant="contained"
               >
                 Search
               </Button>
             </AppBar>
-            {!searchQuery && !tags.length && (
-              <Paper className={classes.pagination} elevation={6}>
-                <Pagination page={page} />
-              </Paper>
-            )}
           </Grid>
+          <Grid item xs={12} sm={12} md={12}>
+            <Posts setCurrentId={setCurrentId} />
+          </Grid> 
         </Grid>
+        {!searchQuery && !tags.length && (
+          <Paper className={classes.pagination} elevation={6}>
+            <Pagination page={page} />
+          </Paper>
+        )}
       </Container>
     </Grow>
   );

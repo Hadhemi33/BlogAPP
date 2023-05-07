@@ -106,7 +106,7 @@ const Auth = () => {
                   //color
                   variant="outlined"
                   name="firstName"
-                  label="firsccccccccccccctName Name"
+                  label="firstName Name"
                   handleChange={handleChange}
                   autoFocus
                   half
@@ -171,7 +171,7 @@ const Auth = () => {
 
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <Button style={{ color: "white" }} onClick={switchMode}>
+              <Button style={{ color: "#006402" }} onClick={switchMode}>
                 {isSignup
                   ? "Already have an account ? Sign In"
                   : "You don't have an account ? Sign Up"}
