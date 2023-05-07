@@ -9,6 +9,7 @@ export default makeStyles((theme) => ({
   },
   pagination: {
     borderRadius: 4,
+
     marginTop: "1rem",
     padding: "16px",
   },
@@ -16,5 +17,9 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column-reverse",
     },
+  },
+  searchButton: {
+    backgroundColor: "#609966",
+    color: "white",
   },
 }));

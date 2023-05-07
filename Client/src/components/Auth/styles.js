@@ -8,7 +8,7 @@ export default makeStyles((theme) => ({
     padding: "20px",
   },
   paper: {
-    backgroundColor: "black",
+    backgroundColor: "white",
 
     width: "100%",
     marginTop: theme.spacing(8),

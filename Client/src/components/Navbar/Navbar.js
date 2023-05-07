@@ -94,15 +94,16 @@ const NavBar = () => {
               {user.result.name.charAt(0)}
             </Avatar>
 
-            <Typography className={classes.userName} variant="h6">
+            {/* <Typography className={classes.userName} variant="h6">
               {user.result.name}
-            </Typography>
+              
+            </Typography> */}
+
             <Button
               variant="contained"
               className={classes.logout}
-              color="secondary"
               onClick={logout}
-              style={{ fontWeight: "900 ", color: "white", fontSize: "1.1rem" }}
+              style={{ backgroundColor: "#afffb8", fontSize: "1rem" }}
             >
               Logout
             </Button>
