@@ -107,16 +107,15 @@ const Home = () => {
               <Button
                 onClick={searchPost}
                 className={classes.searchButton}
-                
                 variant="contained"
               >
                 Search
               </Button>
             </AppBar>
           </Grid>
-          <Grid item xs={12} sm={12} md={12}>
+          <Grid item xs={6} sm={3} md={12}>
             <Posts setCurrentId={setCurrentId} />
-          </Grid> 
+          </Grid>
         </Grid>
         {!searchQuery && !tags.length && (
           <Paper className={classes.pagination} elevation={6}>
