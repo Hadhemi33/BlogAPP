@@ -7,13 +7,14 @@ import {
   AppBar,
   TextField,
   Button,
+  Checkbox,
 } from "@material-ui/core";
 import Posts from "../Posts/Posts";
 import Form from "../Form/Form";
 import { useDispatch } from "react-redux";
 import { getPosts, getPostsBySearch } from "../../actions/posts";
 import useStyles from "./styles";
-
+import "./style.css";
 import Pagination from "../pagination";
 import { useHistory, useLocation } from "react-router-dom";
 // input for tags
@@ -36,7 +37,11 @@ const Home = () => {
   const searchQuery = query.get("searchQuery");
   const [search, setSearch] = useState("");
   const [tags, setTags] = useState([]);
+  const [checked, setChecked] = useState(false);
 
+  useEffect(() => {
+    // alert(checked);
+  }, [checked]);
   // useEffect(() => {
   //   dispatch(getPosts());
   // }, [currentId, dispatch]);
@@ -62,6 +67,11 @@ const Home = () => {
   const handleAdd = (tag) => setTags([...tags, tag]);
   const handleDelete = (tagToDelete) =>
     setTags(tags.filter((tag) => tag !== tagToDelete));
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
   return (
     <Grow in>
       <Container maxWidth="xl">
@@ -75,7 +85,7 @@ const Home = () => {
           alignItems="stretch"
           spacing={3}
         >
-          <Grid item xs={12} sm={12} md={12}>
+          <Grid item xs={12} sm={6} md={6}>
             <AppBar
               className={classes.appBarSearch}
               position="static"
@@ -113,8 +123,40 @@ const Home = () => {
               </Button>
             </AppBar>
           </Grid>
+          <Grid item xs={12} sm={6} md={6}>
+            <AppBar
+              className={classes.appBarSearch}
+              position="static"
+              color="inherit"
+              style={{
+                height: "197px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "row",
+                gap: "20px",
+              }}
+            >
+              <label
+                style={{
+                  fontSize: "2rem",
+                }}
+              >
+                𝓜𝔂 𝓹𝓸𝓼𝓽𝓼
+              </label>
+
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  checked={checked}
+                  onChange={(e) => setChecked(e.target.checked)}
+                />
+                <span class="slider round"></span>
+              </label>
+            </AppBar>
+          </Grid>
           <Grid item xs={6} sm={3} md={12}>
-            <Posts setCurrentId={setCurrentId} />
+            <Posts setCurrentId={setCurrentId} checked={checked} />
           </Grid>
         </Grid>
         {!searchQuery && !tags.length && (

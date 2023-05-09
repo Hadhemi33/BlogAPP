@@ -5,7 +5,7 @@ export default makeStyles((theme) => ({
     borderRadius: "20px",
     objectFit: "cover",
     width: "100%",
-    maxHeight: "600px",
+    maxHeight: "550px",
   },
   card: {
     display: "flex",
@@ -20,11 +20,13 @@ export default makeStyles((theme) => ({
     margin: "10px",
     flex: 1,
   },
+
   imageSection: {
     marginLeft: "20px",
     [theme.breakpoints.down("sm")]: {
       marginLeft: 0,
     },
+    width: "70%",
   },
   recommendedPosts: {
     display: "flex",

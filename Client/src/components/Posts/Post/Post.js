@@ -101,6 +101,9 @@ const Post = ({ post, setCurrentId }) => {
         </Typography>
       </div>
       <Typography
+        style={{
+          cursor: "pointer",
+        }}
         className={classes.title}
         onClick={openPost}
         variant="h5"

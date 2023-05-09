@@ -33,7 +33,7 @@ const Form = ({ currentId, setCurrentId }) => {
       title: "",
       message: "",
       tags: "",
-      selectedFile: "",
+      selectedFile: " ",
     });
   };
   const handleSubmit = (e) => {
@@ -50,6 +50,24 @@ const Form = ({ currentId, setCurrentId }) => {
       clear();
     }
   };
+  const [paperTag, setPaperTag] = useState("");
+  const [paperTagDispalyed, setPaperTagDisplayed] = useState(false);
+
+  useEffect(() => {
+    const paper = document.getElementById("paperT");
+    console.log(paper);
+    setPaperTag(paper);
+  }, []);
+
+  const showFormm = () => {
+    //how to change paper style
+    setPaperTagDisplayed(!paperTagDispalyed);
+    if (paperTagDispalyed) {
+      paperTag.style.height = "95px";
+    } else {
+      paperTag.style.height = "505px";
+    }
+  };
 
   if (!user?.result?.name) {
     return (
@@ -64,35 +82,71 @@ const Form = ({ currentId, setCurrentId }) => {
   return (
     <Paper
       style={{
-        minHeight: "500px",
+        height: "95px",
         minWidth: "1100PX",
+        overflow: "hidden",
+        transition: "height 1s ease-out",
       }}
       className={classes.paper}
+      id="paperT"
     >
+      <button
+        style={{
+          border: "none",
+          background: "none",
+          outline: "none",
+          cursor: "pointer",
+        }}
+        onClick={showFormm}
+      >
+        {paperTagDispalyed ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="40"
+            viewBox="0 0 24 24"
+            width="40"
+          >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
+          </svg>
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="40"
+            viewBox="0 0 24 24"
+            width="40"
+          >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
+          </svg>
+        )}
+      </button>
+
       <form
         autoComplete="off"
-        noValidate
+        // noValidate
         className={`${classes.root} ${classes.form}`}
         onSubmit={handleSubmit}
       >
-        <Typography variant="h6">
+        <Typography variant="h6" onClick={showFormm}>
           {currentId
             ? "Editing "
             : "Share your experience with others and create your "}
           {"  "}
           Memo
         </Typography>
+
         {/*ho create the post */}
         {/* <TextField
-        name="creator"
-        variant="outlined"
-        label="Creator"
-        fullWidth
-        value={postData.creator}
-        onChange={(e) =>
-          setPostData({ ...postData, creator: e.target.value })
-        }
-      /> */}
+    name="creator"
+    variant="outlined"
+    label="Creator"
+    fullWidth
+    value={postData.creator}
+    onChange={(e) =>
+      setPostData({ ...postData, creator: e.target.value })
+    }
+  /> */}
         <TextField
           style={
             {
@@ -103,6 +157,7 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="outlined"
           label="Title"
           fullWidth
+          required
           value={postData.title}
           onChange={(e) => setPostData({ ...postData, title: e.target.value })}
         />
@@ -117,6 +172,7 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="outlined"
           label="Message"
           fullWidth
+          required
           value={postData.message}
           onChange={(e) =>
             setPostData({ ...postData, message: e.target.value })
@@ -132,6 +188,7 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="outlined"
           label="Tags (coma separated)"
           fullWidth
+          required
           value={postData.tags}
           onChange={(e) =>
             setPostData({ ...postData, tags: e.target.value.split(",") })
@@ -142,7 +199,6 @@ const Form = ({ currentId, setCurrentId }) => {
 
         <div className={classes.fileInput}>
           <FileBase
-            s
             type="file"
             multiple={false}
             onDone={({ base64 }) =>
@@ -164,8 +220,9 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="contained"
           className={classes.buttonClear}
           size="small"
-          onClick={clear}
+          //onClick={clear}
           fullWidth
+          type="reset"
         >
           Clear
         </Button>

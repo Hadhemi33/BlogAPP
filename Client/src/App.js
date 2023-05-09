@@ -37,7 +37,6 @@ const App = () => {
             <Route path="/posts/search" exact component={Home} />
             <Route path="/posts/:id" exact component={PostDetails} />
             <Route path="/contact" exact component={Contact} />
-            {/* <Route path="/home" exact component={about} /> */}
 
             {/* <Route path="/auth" exact component={Auth} /> */}
             <Route

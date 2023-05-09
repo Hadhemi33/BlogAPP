@@ -41,10 +41,33 @@ const PostDetails = () => {
       <Paper style={{ padding: '20px', borderRadius: '15px' }} elevation={6}>
         <div className={classes.card}>
           <div className={classes.section}>
-            <Typography variant="h3" component="h2">{post.title}</Typography>
+            <Typography 
+            style={{
+              fontFamily: 'Nunito',
+              fontSize:"3rem",
+              fontWeight:"bold",
+              color:'#0d9515'
+
+            }}
+             >{post.title}</Typography>
+             
             <Typography gutterBottom variant="h6" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
-            <Typography gutterBottom variant="body1" component="p">{post.message}</Typography>
-            <Typography variant="h6">Created by: {post.name}</Typography>
+            <Typography 
+            style={{
+              textAlign:"justify",
+              minWidth:"400px",
+              fontSize:"1.3rem",
+              lineHeight:"2.3rem",
+              marginBottom:"25px",
+              marginTop:"20px"
+
+            }}
+            gutterBottom variant="body1" component="p">{post.message}</Typography>
+            <Typography
+            style={{
+              color:"#ad9515"
+            }}
+            variant="h6">Created by: {post.name}</Typography>
             <Typography variant="body1">{moment(post.createdAt).fromNow()}</Typography>
             <Divider style={{ margin: '20px 0' }} />
             <CommentSection post={post}/>
