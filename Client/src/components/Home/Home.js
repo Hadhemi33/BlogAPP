@@ -163,8 +163,7 @@ const Home = () => {
               style={{
                 fontSize: "2rem",
                 color: "#0a6f10",
-                 marginRight: "200px",
-                
+                marginRight: "200px",
               }}
               component={Link}
               to="/auth"

@@ -28,14 +28,12 @@ const App = () => {
         maxwidth="xl"
         style={{
           minHeight: "100vh",
-          overflow: "hidden",
         }}
       >
         <Switch>
           {/* <Route path="/" exact component={Home} /> */}
           <Route path="/home" exact component={index} />
-          <div className="AppContainer" >
-
+          <div className="AppContainer">
             <Route path="/" exact component={() => <Redirect to="/posts" />} />
             <Route path="/posts" exact component={Home} />
             <Route path="/posts/search" exact component={Home} />
@@ -49,7 +47,6 @@ const App = () => {
               component={() => (!user ? <Auth /> : <Redirect to="/posts" />)}
             />
           </div>
-
         </Switch>
         {/* grow provide simple animation  */}
       </Container>
