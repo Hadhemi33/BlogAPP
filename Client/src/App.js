@@ -17,6 +17,7 @@ import Footer from "./components/Footer/Footer";
 import Contact from "./components/Contact/Contact";
 
 import Form from "./components/Form/Form";
+import index from "./components/index";
 
 const App = () => {
   const user = JSON.parse(localStorage.getItem("profile"));
@@ -27,11 +28,14 @@ const App = () => {
         maxwidth="xl"
         style={{
           minHeight: "100vh",
+          overflow: "hidden",
         }}
       >
-        <div className="AppContainer">
-          <Switch>
-            {/* <Route path="/" exact component={Home} /> */}
+        <Switch>
+          {/* <Route path="/" exact component={Home} /> */}
+          <Route path="/home" exact component={index} />
+          <div className="AppContainer" >
+
             <Route path="/" exact component={() => <Redirect to="/posts" />} />
             <Route path="/posts" exact component={Home} />
             <Route path="/posts/search" exact component={Home} />
@@ -44,9 +48,9 @@ const App = () => {
               exact
               component={() => (!user ? <Auth /> : <Redirect to="/posts" />)}
             />
-          </Switch>
-        </div>
+          </div>
 
+        </Switch>
         {/* grow provide simple animation  */}
       </Container>
       <Footer />
