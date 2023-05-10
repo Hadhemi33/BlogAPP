@@ -7,7 +7,18 @@ const Posts = ({ setCurrentId }) => {
   const { posts, isLoading } = useSelector((state) => state.posts);
 
   const classes = useStyles();
-  if (!posts.length && !isLoading) return "no posts ";
+  if (!posts.length && !isLoading)
+    return (
+      <img
+        style={{
+          width: "80%",
+          height: "80%",
+          objectFit: "cover",
+          marginLeft: "100px",
+        }}
+        src="https://img.freepik.com/vecteurs-libre/homme-disant-aucune-illustration-concept_114360-14192.jpg?w=740&t=st=1683659022~exp=1683659622~hmac=4265c09d71f2699d51a7bf575eb1c9ff8dae2045d6bb25d72df4ab7b8715149b"
+      />
+    );
 
   //console.log(posts);
   // return !posts?.length ? (

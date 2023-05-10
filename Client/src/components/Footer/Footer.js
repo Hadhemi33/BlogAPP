@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer>
       <div className="footer-content">
-        <h3>𝓜𝓔𝓜𝓞 𝓣𝓾𝓷𝓲𝓼𝓲𝓪</h3>
+        <h3 className="H3Footer">𝓜𝓔𝓜𝓞 𝓣𝓾𝓷𝓲𝓼𝓲𝓪</h3>
         <p>
           Made with <span className="heart">&#10084;</span> by H2 I2
         </p>

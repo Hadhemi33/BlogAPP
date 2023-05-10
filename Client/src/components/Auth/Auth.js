@@ -10,7 +10,7 @@ import {
 } from "@material-ui/core";
 import Fichier1 from "../../images/Fichier1.png";
 import fichier2 from "../../images/fichier2.jpg";
-import khomsa from "../../images/khomsa.jpg";
+import khomsa from "../../images/khomsa2.jpg";
 
 import { LoginSocialGoogle } from "reactjs-social-login";
 import { GoogleLoginButton } from "react-social-login-buttons";
